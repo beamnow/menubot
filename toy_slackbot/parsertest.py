@@ -8,8 +8,9 @@ from keyfile import url
 url = url
 find = ""
 
-req = requests.get(url)
-soup = BeautifulSoup(req.content, 'html.parser')
-finds = soup.find_all('img', class_='org_image')
-find = urllib.parse.urljoin(url, finds[1]['src'])
-print(find)
+def get():
+    req = requests.get(url)
+    soup = BeautifulSoup(req.content, 'html.parser')
+    finds = soup.find_all('img', class_='org_image')
+    find = urllib.parse.urljoin(url, finds[1]['src'])
+    return find
