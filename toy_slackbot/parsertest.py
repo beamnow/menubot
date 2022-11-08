@@ -8,7 +8,7 @@ import pprint
 
 # import ssl
 # context = ssl._create_unverified_context()
-url = "http://www.hanbitfnb.com/24"
+url = url
 find = ""
 
 req = requests.get(url)
