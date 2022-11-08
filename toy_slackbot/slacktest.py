@@ -9,7 +9,7 @@ client = WebClient(token=slack_token)
 
 try:
     response = client.chat_postMessage(
-        channel="C049ZH096BW", # Channel ID
+        channel= Channeld ID, # Channel ID
         text="say hi to Ryan! :thumbsup:"
     )
 except SlackApiError as e:
