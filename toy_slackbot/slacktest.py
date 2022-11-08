@@ -34,8 +34,8 @@ def process(slack_token=slack_token, channel_id=channel_id):
     except SlackApiError as e:
         assert e.response["error"]
 
-# Schedules job_function to be run on the third Friday
-# of June, July, August, November and December at 00:00, 01:00, 02:00 and 03:00
+# Schedules job_function to be run on the Mon-Friday
+# at 11:00
 sched = BlockingScheduler()
 sched.add_job(process, 'cron', day_of_week='mon-fri', hour=11, minute=00)
 
