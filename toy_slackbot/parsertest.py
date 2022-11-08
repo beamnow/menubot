@@ -14,4 +14,4 @@ def get():
     finds = soup.find_all('img', class_='org_image')
     find = urllib.parse.urljoin(url, finds[1]['src'])
     return find
-
+    
