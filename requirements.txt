@@ -1,0 +1,5 @@
+urllib==1.26.12
+requests
+beautifulsoup4
+apscheduler
+slack_sdk
