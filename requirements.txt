@@ -3,3 +3,4 @@ requests
 beautifulsoup4
 apscheduler
 slack_sdk
+pillow

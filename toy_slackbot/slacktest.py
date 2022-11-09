@@ -4,7 +4,7 @@ logging.basicConfig(level=logging.DEBUG)
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 from keyfile import slack_token, channel_id
-from parsertest import get
+from parsertest import get, day_get
 
 from apscheduler.schedulers.blocking import BlockingScheduler
 slack_token = slack_token
@@ -31,6 +31,24 @@ def process(slack_token=slack_token, channel_id=channel_id):
             }
             ]
         )
+    except SlackApiError as e:
+        assert e.response["error"]
+
+def day_process(slack_token=slack_token, channel_id=channel_id):
+    day_get()
+    slack_token = slack_token # Bot OAuth Token
+    client = WebClient(token=slack_token)
+
+    try:
+        # Call the files.upload method using the WebClient
+        # Uploading files requires the `files:write` scope
+        result = client.files_upload(
+            channels=channel_id,
+            initial_comment="오늘의 메뉴 :smile:",
+            file='./today_menu.png',
+        )
+        # Log the result
+
     except SlackApiError as e:
         assert e.response["error"]
 
